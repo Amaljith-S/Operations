@@ -1,0 +1,7 @@
+{
+    "Calc_Cpu": true,
+    "Calc_Memory": true,
+    "TimeZone": "Asia/Kolkata",
+    "Cpu_Cost" : 0.04,
+    "Memory_cost" : 0.02
+  } 

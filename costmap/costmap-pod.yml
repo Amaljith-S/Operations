@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: costmap
+spec:
+  containers:
+    - name: costmap
+      image: coastmap:v9
+      volumeMounts:
+      - name: costmap-config
+        mountPath: /app/input.json
+        subPath: input.json
+      env:
+      - name: es_host
+        value: "http://192.168.1.223:9200"      
+      - name: es_user
+        value: "elastic"
+      - name: es_pass
+        value: "Hb4cG2UZJNoKkWmKKQtM"
+      command: ["sleep", "4800"]
+  volumes:
+    - name: costmap-config
+      configMap:
+        name: costmap-config
+  restartPolicy: Never

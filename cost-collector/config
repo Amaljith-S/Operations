@@ -1,0 +1,43 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUREekNDQWZlZ0F3SUJBZ0lVQjk2dlk4Z1BMMDhhaWd5ZVFIS2JaU2RGcm5Nd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0Z6RVZNQk1HQTFVRUF3d01NVEF1TVRVeUxqRTRNeTR4TUI0WERUSXlNRFV4TmpBMU16UXhNVm9YRFRNeQpNRFV4TXpBMU16UXhNVm93RnpFVk1CTUdBMVVFQXd3TU1UQXVNVFV5TGpFNE15NHhNSUlCSWpBTkJna3Foa2lHCjl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF6enhMT2FEYmd5SnlZQ29UYUVxelQxdm9JakQwR2FWRGF0cjYKamZHUEs0dWNObmN6c0hvenJzanppMjRscjZnZjM1NlVsNGR4L1czOTZXNXVHc3FhSjlieVFLdmxlZGJKOHQrKwp6dkl0cTA4aldlOHVOdTB3TVBvU3Fkck5zQXY2M3ZNaDFlVG5TUHhxaTg1Vm9YMWlkWEpsRHZEM0NNY3YwZ01SClZJcWRCT2E0YVhsSGs2Y3N6VFFJMHZSOWRRQStVM01PR05YdUsvL2czbHNLeE5BU1MxOXBjbHQyNFdkbnVRVmYKc1hQN0YxZ2MyelZiTmZOTmRHSFRGOVd3NXYxSk1sdkl4NnIzYnVJdExFMmwxdGNPQldCQXBWbzg0bzFlVDR6VwpXZUt2U2ZrV3hrNmYxUE0wZ3V1R1BqdFNZalVLRnA1c1ZTRStCVzlEa0VLUGpaNHh5UUlEQVFBQm8xTXdVVEFkCkJnTlZIUTRFRmdRVS9yNXVtNWZOMGEyKzJZVWd2c0E0WFRtTUY1UXdId1lEVlIwakJCZ3dGb0FVL3I1dW01Zk4KMGEyKzJZVWd2c0E0WFRtTUY1UXdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QU5CZ2txaGtpRzl3MEJBUXNGQUFPQwpBUUVBQmRmOCs3QUYwZThNc1hra0gwdFUwRW82d2FMSUpMMGhmQ0FRSFRIUWcvUXpBdVRoTmJNSUJRQnRvK2pGCkdpemRMRUxhRlVuWmJEbkpQTkUxdnZwZkVGMWdYR2REUlROVzd3THhod0RBOXA1T0lRWGRhZjVBLzRvSDA0SnQKaWxqeDNKS1A3QTIyNU42aFVmd2xNcS9va2FGbjR0ZXp3bUducU1qMHBiQm9VeEN4MjBqVk90cnRhbmtuMGhrQwprV0g5dlowa3lVbWJYYVVMVjBzYWhISFUrUkhmSWN3UGVMNjRtZEV1Yk0ydGpUbEdteE5aY3htNkhVVFBZQU5VCmNZSGNLOS9TTTI1UTBpTCtnSTF6QnR5bm5HQTJBNXpYT2ZITFB3WWxJT2ozSk4rM0RiNlJuTkpFT1dJTi9WSXgKM3Z3SCtjN2dWWTRKSTNzc0FiVlpFbnJFN2c9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    server: https://192.168.1.223:16443
+  name: microk8s-cluster
+- cluster:
+    certificate-authority: /home/apton-sooraj/.kube/minikube/ca.crt
+    extensions:
+    - extension:
+        last-update: Tue, 14 Jun 2022 09:29:51 IST
+        provider: minikube.sigs.k8s.io
+        version: v1.25.2
+      name: cluster_info
+    server: https://192.168.49.2:8443
+  name: multinode-demo
+contexts:
+- context:
+    cluster: microk8s-cluster
+    user: admin
+  name: microk8s
+- context:
+    cluster: multinode-demo
+    extensions:
+    - extension:
+        last-update: Tue, 14 Jun 2022 09:29:51 IST
+        provider: minikube.sigs.k8s.io
+        version: v1.25.2
+      name: context_info
+    namespace: default
+    user: multinode-demo
+  name: multinode-demo
+current-context: multinode-demo
+kind: Config
+preferences: {}
+users:
+- name: admin
+  user:
+    token: ZEcrcHRhOWVpMUpILzluS25Ec3F3TVIrTy9nMVBGSUU1c0JDK1E2UERlZz0K
+- name: multinode-demo
+  user:
+    client-certificate: /home/apton-sooraj/.kube/minikube/client.crt
+    client-key: /home/apton-sooraj/.kube/minikube/client.key
