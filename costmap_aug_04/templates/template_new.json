@@ -1,0 +1,34 @@
+{
+  "from": 0,
+  "size": 500000,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "range": {
+            "indexed_at": {
+              "gte": "{{.Todate}}",
+              "lte": "{{.FromDate}}",
+              "time_zone": "Asia/Kolkata"
+            }
+          }
+        }
+      ],
+      "must": [
+        {
+          "term": {
+            "{{.TermKey}}": "{{.Term}}"
+          }
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "Avg of ": {
+      "sum": {
+        "field": "{{.AvgField}}"
+      }
+    }
+  }
+}

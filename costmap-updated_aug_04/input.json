@@ -1,0 +1,11 @@
+{
+    "Calc_Cpu": true,
+    "Calc_Memory": true,
+    "TimeZone": "Asia/Kolkata",
+    "Cpu_Cost" : 0.04,
+    "Memory_cost" : 0.02,
+    "Datapoint_Count": 60.00,
+    "Ref_Value_PodUsage":1000.00,
+    "Mi_to_GB_Value":0.001048576
+
+  }
