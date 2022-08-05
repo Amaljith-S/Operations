@@ -1,0 +1,41 @@
+{
+  "from": 0,
+  "size": 500000,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "range": {
+            "indexed_at": {
+              "gte": "{{.Todate}}",
+              "lte": "{{.FromDate}}",
+              "time_zone": "{{.TimeZone}}"
+            }
+          }
+        }
+      ],
+      "must": [
+        {
+          "term": {
+            "{{.TermKey}}": "{{.Term}}"
+          }
+        },
+        {
+
+          "term": {
+            "{{.TermKey2}}": "{{.Term2}}"
+          }
+
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "Avg of ": {
+      "avg": {
+        "field": "{{.AvgField}}"
+      }
+    }
+  }
+}

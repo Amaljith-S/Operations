@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: costkube
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 0
+  failedJobsHistoryLimit: 0
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+          - name:  gcr-json-key
+          containers:
+          - name: costkube
+            image: gcr.io/asp-pprd/costkube:latest
+            imagePullPolicy: IfNotPresent
+            command: ["./main"]
+            env:
+            - name: es_host
+              value: "http://192.168.1.223:9200"      
+            - name: es_user
+              value: "elastic"
+            - name: es_pass
+              value: "Hb4cG2UZJNoKkWmKKQtM"
+          restartPolicy: OnFailure
+
+
+
+
+
+
+
+
